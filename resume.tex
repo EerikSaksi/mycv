@@ -1,0 +1,131 @@
+\documentclass[a4paper]{article}
+    \usepackage{fullpage}
+    \usepackage{amsmath}
+    \usepackage{amssymb}
+    \usepackage{textcomp}
+    \usepackage[utf8]{inputenc}
+    \usepackage[T1]{fontenc}
+    \usepackage{xcolor}
+    \usepackage[hidelinks]{hyperref}
+    \textheight=10in
+    \pagestyle{empty}
+    \raggedright
+
+    %\renewcommand{\encodingdefault}{cg}
+%\renewcommand{\rmdefault}{lgrcmr}
+\hypersetup{
+  colorlinks = true
+  urlcolor = blue
+}
+
+\def\bull{\vrule height 0.8ex width .7ex depth -.1ex }
+
+% DEFINITIONS FOR RESUME %%%%%%%%%%%%%%%%%%%%%%%
+
+\newcommand{\area} [2] {
+    \vspace*{-9pt}
+    \begin{verse}
+        \textbf{#1}   #2
+    \end{verse}
+}
+
+\newcommand{\lineunder} {
+    \vspace*{-8pt} \\
+    \hspace*{-18pt} \hrulefill \\
+}
+
+\newcommand{\header} [1] {
+    {\hspace*{-18pt}\vspace*{6pt} \textsc{#1}}
+    \vspace*{-6pt} \lineunder
+}
+
+\newcommand{\employer} [3] {
+    { \textbf{#1} (#2)\\ \underline{\textbf{\emph{#3}}}\\  }
+}
+
+\newcommand{\contact} [3] {
+    \vspace*{-10pt}
+    \begin{center}
+        {\Huge \scshape {#1}}\\
+        #2 \\ #3
+    \end{center}
+    \vspace*{-8pt}
+}
+
+\newenvironment{achievements}{
+    \begin{list}
+        {$\bullet$}{\topsep 0pt \itemsep -2pt}}{\vspace*{4pt}
+    \end{list}
+}
+
+\newcommand{\schoolwithcourses} [4] {
+    \textbf{#1} #2 $\bullet$ #3\\
+    #4 \\
+    \vspace*{5pt}
+}
+
+\newcommand{\school} [4] {
+    \textbf{#1} #2 $\bullet$ #3\\
+    #4 \\
+}
+% END RESUME DEFINITIONS %%%%%%%%%%%%%%%%%%%%%%%
+
+    \begin{document}
+\vspace*{-40pt}
+
+    
+
+%==== Profile ====%
+\vspace*{-10pt}
+\begin{center}
+	{\Huge \scshape {Eerik Saksi}}\\
+  Helsinki, Finland $\cdot$ saksi.eerik@gmail.com $\cdot$ +44 7519 698 702 $\cdot$ \url{github.com/EerikSaksi}\\
+\end{center}
+
+%==== Education ====%
+\header{Education}
+\textbf{University of Glasgow}\hfill Glasgow\\
+MSci Computing  \hfill Sep 2018 - May 2022\\
+\vspace{1mm}
+{GPA: 2nd Year: 17.7 3rd Year: 16.18}
+\vspace{2mm}
+
+%==== Experience ====%
+\header{Experience}
+\vspace{1mm}
+
+\textbf{UROS} \hfill Oulu, Finland\\
+\textit{Software Engineer} \hfill June 2019 - August 2019\\
+\vspace{-1mm}
+\begin{itemize} \itemsep 1pt
+	\item At UROS, I was tasked with reverse engineering a project built on LabVIEW, a neural network written in C and an MYSQL database. UROS wanted to understand how the data was loaded and processed by LabVIEW in order to replace the C library with a better alternative. I managed to completely replicate the old behaviour with the existing data with a Python implementation, which enabled backwards compatibility with existing user data, and allowed UROS to use newer neural network implementations such as Tensorflow.
+\end{itemize}
+\textbf{Leidos} \hfill Glasgow\\
+\textit{Team project} \hfill November 2019 - March 2020\\
+\vspace{-1mm}
+\begin{itemize} \itemsep 1pt
+	\item Leidos wanted our 5 person team to help manage their parking at their company. I was responsible for developing most of the React Native app, aswell as helping my teammates use FastAPI. I also learned how SQLAlchemy worked from my teammates.
+\end{itemize}
+
+\header{Skills}
+\begin{tabular}{ l l }
+	Javascript/Typescript: & In both backend and frontend                                                           \\
+	React:                 & Libraries include Material UI, React Router, Jest, React Bootstrap etc.                \\
+	node.js:               & Libraries include Sequelize, Apollo Server, Jest, Express, node-fetch/node-html-parser \\
+	SQL:                   & Postgres/SQLite and ORM\textquotesingle{}s (SQLAlchemy, Django ORM, Sequelize)         \\
+\end{tabular}
+\vspace{2mm}
+
+\header{tunety.pe}
+    {\textbf{Tune Type}} {\sl Sequelize, node.js, Express,Apollo Server, GraphQL, Google Oauth, React, Bootstrap} \hfill \url{tunety.pe}\\
+With tunetype, you can select a song and practice your typing speed to the lyrics and song live. You can also create synchronizations for songs that haven\textquotesingle{}t been synchronized yet. I also used YouTube\textquotesingle{}s and Genius\textquotesingle{}s API for searching and metadata. Hosted on Heroku.\\
+\vspace*{2mm}
+    {\textbf{FridgeGerald}} {\sl Django} \hfill \url{https://github.com/EerikSaksi/FridgeGerald}\\
+FridgeGerald suggests recipes based on what ingredients you have, and prioritizes those that are close to spoiling.\\
+\vspace*{2mm}
+    {\textbf{My personal site (Work in Progress)}} {\sl React, TypeScript, Material UI} \hfill \url{https://eeriksaksi.vercel.app/}\\
+
+\vspace*{2mm}
+
+\ 
+\end{document}

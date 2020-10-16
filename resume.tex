@@ -7,6 +7,13 @@
     \usepackage[T1]{fontenc}
     \usepackage{xcolor}
     \usepackage[hidelinks]{hyperref}
+
+
+\usepackage{xcolor}
+\usepackage{amssymb}
+\usepackage{scalerel}
+\usepackage{stackengine}
+\usepackage{pgf}
     \textheight=10in
     \pagestyle{empty}
     \raggedright
@@ -68,6 +75,24 @@
     #4 \\
 }
 
+\newcounter{iloop}
+\newcommand\openbigstar[1][0.7]{%
+  \scalerel*{%
+    \stackinset{c}{-.125pt}{c}{}{\scalebox{#1}{\color{white}{$\bigstar$}}}{%
+      $\bigstar$}%
+  }{\bigstar}
+}
+\newcommand{\Stars}[1]{\ensuremath{%
+\pgfmathtruncatemacro{\imax}{ifthenelse(int(#1)==#1,#1-1,#1)}%
+\pgfmathsetmacro{\xrest}{0.9*(1-#1+\imax)}%
+\setcounter{iloop}{0}%
+\loop\stepcounter{iloop}\ifnum\value{iloop}<\the\numexpr\imax+1
+\bigstar\repeat
+\openbigstar[\xrest]%
+\setcounter{iloop}{0}%
+\loop\stepcounter{iloop}\ifnum\value{iloop}<\the\numexpr5-\imax\relax
+\openbigstar[.9]\repeat}}
+
 % END RESUME DEFINITIONS %%%%%%%%%%%%%%%%%%%%%%%
 
     \begin{document}
@@ -112,11 +137,12 @@
 
 \header{Skills}
 \begin{tabular}{ l l }
-	Javascript/Typescript: & In both backend and frontend                                                           \\
-	React:                 & Libraries include Material UI, React Router, Jest, React Bootstrap etc.                \\
-	node.js:               & Libraries include Sequelize, Apollo Server, Jest, Express, node-fetch/node-html-parser,   \\ 
-  & type-orm/type-graphql \\
-	SQL:                   & Postgres/SQLite and ORM\textquotesingle{}s (SQLAlchemy, Django ORM)         \\
+  Javascript/Typescript \Stars{4}: & In both backend and frontend                                                           \\
+  React: \Stars{3}            & Libraries include Material UI, React Router, Jest, React Bootstrap, \\
+  & Apollo Client etc.                \\
+	node.js:               & Libraries include Sequelize, Apollo Server, Jest, Express, node-fetch/node-html-parser,    \\ 
+  & type-orm/type-graphql, PostGraphile \\
+	SQL: \Stars{3}               & Postgres/SQLite and ORM\textquotesingle{}s (SQLAlchemy, Django ORM). Also studied Database Systems in Uni         \\
 \end{tabular}
 \vspace{2mm}
 
